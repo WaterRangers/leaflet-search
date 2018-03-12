@@ -333,6 +333,7 @@ L.Control.Search = L.Control.extend({
 		var cancel = L.DomUtil.create('a', className, this._container);
 		cancel.href = '#';
 		cancel.title = title;
+		cancel.setAttribute('aria-label', 'Cancel');
 		cancel.style.display = 'none';
 		cancel.innerHTML = "<span>&otimes;</span>";//imageless(see css)
 
@@ -347,6 +348,7 @@ L.Control.Search = L.Control.extend({
 		var button = L.DomUtil.create('a', className, this._container);
 		button.href = '#';
 		button.title = title;
+		button.setAttribute('aria-label', 'Cancel');
 
 		L.DomEvent
 			.on(button, 'click', L.DomEvent.stop, this)
