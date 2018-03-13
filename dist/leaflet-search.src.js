@@ -315,6 +315,11 @@ L.Control.Search = L.Control.extend({
 		input.style.display = 'none';
 		input.role = 'search';
 		input.id = input.role + input.type + input.size;
+		input.setAttribute('aria-label', text);
+		input.setAttribute('aria-autocomplete', 'false');
+		input.setAttribute('aria-controls', 'search-tooltip');
+		input.setAttribute('aria-owns', 'search-tooltip');
+		input.setAttribute('role', 'combobox');
 		
 		label.htmlFor = input.id;
 		label.style.display = 'none';
@@ -333,9 +338,9 @@ L.Control.Search = L.Control.extend({
 		var cancel = L.DomUtil.create('a', className, this._container);
 		cancel.href = '#';
 		cancel.title = title;
-		cancel.setAttribute('aria-label', 'Cancel');
 		cancel.style.display = 'none';
 		cancel.innerHTML = "<span>&otimes;</span>";//imageless(see css)
+		cancel.setAttribute('aria-label', title);
 
 		L.DomEvent
 			.on(cancel, 'click', L.DomEvent.stop, this)
@@ -348,7 +353,7 @@ L.Control.Search = L.Control.extend({
 		var button = L.DomUtil.create('a', className, this._container);
 		button.href = '#';
 		button.title = title;
-		button.setAttribute('aria-label', 'Submit');
+		button.setAttribute('aria-label', title);
 
 		L.DomEvent
 			.on(button, 'click', L.DomEvent.stop, this)
@@ -363,6 +368,9 @@ L.Control.Search = L.Control.extend({
 		var self = this;		
 		var tool = L.DomUtil.create('ul', className, this._container);
 		tool.style.display = 'none';
+		tool.id = className;
+		tool.setAttribute('role', 'listbox');
+		
 		L.DomEvent
 			.disableClickPropagation(tool)
 			.on(tool, 'blur', this.collapseDelayed, this)
@@ -393,6 +401,7 @@ L.Control.Search = L.Control.extend({
 		{
 			tip = L.DomUtil.create('li', '');
 			tip.innerHTML = text;
+			tip.setAttribute('role', 'option');
 		}
 		
 		L.DomUtil.addClass(tip, 'search-tip');
