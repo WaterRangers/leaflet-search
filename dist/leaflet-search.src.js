@@ -348,7 +348,7 @@ L.Control.Search = L.Control.extend({
 		var button = L.DomUtil.create('a', className, this._container);
 		button.href = '#';
 		button.title = title;
-		button.setAttribute('aria-label', 'Cancel');
+		button.setAttribute('aria-label', 'Submit');
 
 		L.DomEvent
 			.on(button, 'click', L.DomEvent.stop, this)
