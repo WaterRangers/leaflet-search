@@ -1,5 +1,5 @@
 /* 
- * Leaflet Control Search v2.4.0 - 2018-03-13 
+ * Leaflet Control Search v2.9.0 - 2018-05-16 
  * 
  * Copyright 2018 Stefano Cudini 
  * stefano.cudini@gmail.com 
@@ -577,7 +577,7 @@ L.Control.Search = L.Control.extend({
          
       }
     }
-    if(layer instanceof L.Path || layer instanceof L.Polyline || layer instanceof L.Polygon)
+    else if(layer instanceof L.Path || layer instanceof L.Polyline || layer instanceof L.Polygon)
     {
       if(self._getPath(layer.options,propName))
       {
