@@ -19,10 +19,8 @@
     "map",
     "leaflet"
   ],
-  "dependencies": {
-    "leaflet": "*"
-  },
   "devDependencies": {
+    "leaflet": "*",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.11",
     "grunt-contrib-clean": "^0.5.0",
